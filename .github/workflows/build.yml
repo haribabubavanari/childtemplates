@@ -1,0 +1,22 @@
+name: build-yml Action
+
+
+on:
+  workflow_call:
+    inputs:
+      text:
+        description: The text that will be added to the file.
+        required: true
+        type: string
+
+
+jobs:
+  add-text:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Add text
+        run: |
+          echo "Adding text to file"
+          echo "${{inputs.text}}"
